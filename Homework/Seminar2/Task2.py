@@ -1,0 +1,30 @@
+def input_number(input_message):
+    while True:
+        input_str = input(input_message)
+        if is_int(input_str) and int(input_str) > 0:
+            return int(input_str)
+        else:
+            print('Ошибка ввода!')
+
+
+def is_int(str):
+    try:
+        int(str)
+        return True
+    except ValueError:
+        return False
+
+
+def mult(n):
+    if n == 1:
+        return n
+    else:
+        return n * mult(n - 1)
+
+
+number_N = input_number("Введите натуральное число N:")
+list_numbers = []
+for i in range(1, number_N + 1):
+    list_numbers.append(mult(i))
+output_str = str(list_numbers)
+print(output_str)
